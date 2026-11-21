@@ -1,0 +1,7 @@
+; Engine configuration file.
+
+[application]
+
+config/name="PieceByPiece_GameJam"
+config/icon="res://icon.jpg"
+config/features=PackedStringArray("4.3")
