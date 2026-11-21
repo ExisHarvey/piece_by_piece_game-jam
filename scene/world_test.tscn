@@ -1,0 +1,256 @@
+[gd_scene format=3 uid="uid://b7jon10r0wyba"]
+
+[ext_resource type="Environment" uid="uid://uxkratdagcai" path="res://environment/indoor_day_cozy.tres" id="1_7rwbl"]
+[ext_resource type="PackedScene" uid="uid://3u1o8p8xhnom" path="res://components/ventilation.tscn" id="2_jtske"]
+[ext_resource type="Script" uid="uid://b3p1en62y7y5u" path="res://components/character_body_3d.gd" id="3_f0ajh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5edk5"]
+albedo_color = Color(0.6884459, 0.41102174, 0.0867055, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5edk5"]
+size = Vector3(9.75, 1, 11.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4efk5"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.9377549, 1.6692784, 0.30673465, 1)
+emission_energy_multiplier = 4.11
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtske"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(2.626922, 2.320408, 0.2764993, 1)
+emission_energy_multiplier = 2.04
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sbcv"]
+albedo_color = Color(0.45581734, 0.45581734, 0.45581734, 1)
+emission_enabled = true
+emission = Color(0.24234025, 0.7956778, 0.8746442, 1)
+
+[sub_resource type="FogMaterial" id="FogMaterial_4efk5"]
+density = 2.5287
+albedo = Color(0.016551724, 0.016551726, 0.016551724, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5edk5"]
+
+[node name="world" type="Node3D" unique_id=966583046]
+
+[node name="environment" type="Node" parent="." unique_id=1223499123]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment" unique_id=1559491589]
+transform = Transform3D(1, 0, 0, 0, -0.85536444, 0.5180271, 0, -0.5180271, -0.85536444, -0.043338776, 0, -12.087372)
+light_color = Color(1.9783357, 1.8334446, 0.8488475, 1)
+light_energy = 1.36
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment" unique_id=1701011367]
+environment = ExtResource("1_7rwbl")
+
+[node name="room" type="Node3D" parent="." unique_id=1686078818]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="room" unique_id=1814479747]
+visible = false
+
+[node name="floor" type="CSGBox3D" parent="room/CSGCombiner3D" unique_id=782873522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2662168, -0.12863174, 1.4664235)
+size = Vector3(7.536255, 0.25, 7.9350586)
+
+[node name="floor2" type="CSGBox3D" parent="room/CSGCombiner3D" unique_id=789088437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2662168, 5.961029, 1.4664235)
+size = Vector3(7.536255, 0.25, 7.9350586)
+
+[node name="Wall" type="CSGBox3D" parent="room/CSGCombiner3D" unique_id=1357940211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7608643, 2.820282, 1.4884644)
+size = Vector3(0.5551758, 6.640564, 8.020386)
+
+[node name="Wall3" type="CSGBox3D" parent="room/CSGCombiner3D" unique_id=77882090]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0198517, 2.7974243, -2.7807417)
+size = Vector3(0.5551758, 6.5948486, 8.015625)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="room/CSGCombiner3D/Wall3" unique_id=647290591]
+transform = Transform3D(-8.368801e-08, -1.9145586, 8.3688015e-08, 1.9145586, -8.3688015e-08, -8.3688015e-08, 8.3688015e-08, 8.3688015e-08, 1.9145586, 0, -0.99996567, -0.24859619)
+operation = 2
+sides = 24
+
+[node name="Wall2" type="CSGBox3D" parent="room/CSGCombiner3D" unique_id=1695849991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0132527, 2.820282, 1.4884644)
+size = Vector3(0.5551758, 6.640564, 8.020386)
+
+[node name="Wall4" type="CSGBox3D" parent="room/CSGCombiner3D" unique_id=345874911]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0198517, 2.7974243, 5.5846024)
+size = Vector3(0.5551758, 6.5948486, 8.015625)
+
+[node name="Node3D" type="Node3D" parent="room" unique_id=84127094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8351126, 0)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="room/Node3D" unique_id=1625256129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16, -2.865, 0)
+remote_path = NodePath("../../../camera rig")
+
+[node name="container" type="Node3D" parent="room/Node3D" unique_id=323975097]
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="room/Node3D/container" unique_id=1930542949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.774268, -4.2780857, -4.112529)
+cast_shadow = 0
+radius = 0.5859375
+height = 0.9785156
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="room/Node3D/container" unique_id=992865220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.774268, -0.652791, -4.112529)
+cast_shadow = 0
+radius = 0.5859375
+height = 0.9785156
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="room/Node3D/container" unique_id=715133044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.774268, -2.4580173, -4.112529)
+cast_shadow = 0
+radius = 0.5859375
+height = 2.0981445
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="room/Node3D/container/CSGCylinder3D4" unique_id=1523212207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33194923, -0.009582281, 0.28446817)
+cast_shadow = 0
+operation = 2
+radius = 0.30322266
+height = 2.2884521
+
+[node name="table" type="CSGBox3D" parent="room/Node3D" unique_id=1468464751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0554123, -3.8632596, -4.1129904)
+size = Vector3(2.4204102, 0.25, 1)
+
+[node name="reference guy" type="CSGBox3D" parent="room/Node3D" unique_id=1313781989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.209013, -3.5421343, -2.75)
+material_overlay = SubResource("StandardMaterial3D_5edk5")
+size = Vector3(0.5, 1.8, 0.5)
+
+[node name="room 02" type="CSGBox3D" parent="room/Node3D" unique_id=1735083417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1073208, 0, 0)
+size = Vector3(10, 10, 10)
+
+[node name="Window_cutout" type="CSGCylinder3D" parent="room/Node3D/room 02" unique_id=874409007]
+transform = Transform3D(2.4661624, 0, 0, 0, -1.0779939e-07, 2.4661624, 0, -2.4661624, -1.0779939e-07, -0.20302963, -2.381009, -5.811312)
+operation = 2
+height = 1.1611328
+sides = 12
+
+[node name="Window_cutout2" type="CSGCylinder3D" parent="room/Node3D/room 02" unique_id=527263627]
+transform = Transform3D(-1.0779939e-07, 2.4661624, 0, 1.0779939e-07, 0, 2.4661624, 2.4661624, 1.0779938e-07, -1.0779938e-07, 4.822397, -1.6237, -1.8961797)
+operation = 2
+height = 0.64868164
+sides = 12
+
+[node name="Window_cutout3" type="CSGCylinder3D" parent="room/Node3D/room 02" unique_id=1774182104]
+transform = Transform3D(-1.0779939e-07, 2.4661624, 0, 1.0779939e-07, 0, 2.4661624, 2.4661624, 1.0779938e-07, -1.0779938e-07, 4.822397, -1.7072942, 1.9645982)
+operation = 2
+height = 0.64868164
+sides = 12
+
+[node name="InsideBox" type="CSGBox3D" parent="room/Node3D/room 02" unique_id=169627939]
+operation = 2
+size = Vector3(9, 9, 9)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="room/Node3D/room 02" unique_id=923131507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.75, 0.875)
+size = Vector3(3.5, 4, 3.25)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="room/Node3D/room 02" unique_id=1469653704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.350956, 0.96696365)
+operation = 2
+radius = 1.3618164
+height = 3.9379883
+sides = 24
+
+[node name="collider" type="Node3D" parent="room/Node3D/room 02" unique_id=640483468]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="room/Node3D/room 02/collider" unique_id=103314859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room/Node3D/room 02/collider/StaticBody3D" unique_id=300029924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, 0.875)
+shape = SubResource("BoxShape3D_5edk5")
+
+[node name="Ventilation" parent="room/Node3D" unique_id=127871472 instance=ExtResource("2_jtske")]
+transform = Transform3D(2.9204864e-08, -5.3337004e-08, -1.38983, -1.2217495, -0.6689486, 0, -0.6689486, 1.2217495, -6.07514e-08, 5.8086457, -1.666, -1.959217)
+speed = 0.4
+
+[node name="Ventilation2" parent="room/Node3D" unique_id=735442730 instance=ExtResource("2_jtske")]
+transform = Transform3D(6.5920154e-09, 6.048122e-08, -1.38983, 1.3856117, -0.15101632, 0, -0.15101632, -1.3856117, -6.07514e-08, 5.8086457, -1.690924, 1.9967827)
+speed = -0.2
+
+[node name="lights" type="Node3D" parent="room/Node3D" unique_id=1592951706]
+
+[node name="green light" type="CSGBox3D" parent="room/Node3D/lights" unique_id=1870953132]
+transform = Transform3D(0.94316626, -0.3323212, 0, 0.3323212, 0.94316626, 0, 0, 0, 1, 7.439506, -1.7916675, -0.043507814)
+material_overlay = SubResource("StandardMaterial3D_4efk5")
+size = Vector3(1, 5.177002, 7.1486816)
+
+[node name="light2" type="CSGBox3D" parent="room/Node3D/lights" unique_id=965649752]
+transform = Transform3D(-0.02350085, 0.008280439, 0.9996895, 0.3323212, 0.94316626, 0, -0.9428734, 0.33221802, -0.024916975, 1.3099943, -2.2193651, -6.776678)
+material_overlay = SubResource("StandardMaterial3D_jtske")
+cast_shadow = 0
+size = Vector3(1, 4.4780273, 4.210449)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="room/Node3D/lights" unique_id=1305347441]
+transform = Transform3D(1, 0, 0, 0, -0.48918247, 0.8721814, 0, -0.8721814, -0.48918247, 0.82294726, -0.66453123, -4.893745)
+visible = false
+light_color = Color(0.57014096, 0.466313, 0.024033032, 1)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 13.711439
+spot_angle = 26.703325
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="room/Node3D/lights" unique_id=903351918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.774268, -2.5002534, -4.1305647)
+cast_shadow = 0
+height = 4.5341797
+material = SubResource("StandardMaterial3D_3sbcv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="room/Node3D/lights" unique_id=1241055305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7153862, -2.8205056, -4.204992)
+light_color = Color(0.051780596, 0.63763356, 0.7195483, 1)
+light_energy = 1.312
+light_indirect_energy = 1.145
+light_volumetric_fog_energy = 5.61
+omni_range = 8.923116
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="room/Node3D/lights" unique_id=66048300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.657502, -1.8345046, -2.2831945)
+light_color = Color(0.3697088, 0.6560333, 0.12295679, 1)
+light_energy = 1.312
+light_indirect_energy = 1.145
+light_volumetric_fog_energy = 5.61
+omni_range = 8.923116
+
+[node name="Effect" type="Node3D" parent="room/Node3D" unique_id=1556815240]
+
+[node name="FogVolume" type="FogVolume" parent="room/Node3D/Effect" unique_id=773427932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1371171, -6.3244615, 0.88195443)
+size = Vector3(3.451355, 2.6450806, 3.3192139)
+shape = 2
+material = SubResource("FogMaterial_4efk5")
+
+[node name="camera rig" type="Node3D" parent="." unique_id=897543768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16, 1.9701126, 0)
+
+[node name="orbit" type="Node3D" parent="camera rig" unique_id=1856633502]
+transform = Transform3D(0.66262007, 0, -0.7489557, 0, 1, 0, 0.7489557, 0, 0.66262007, 0, 0, 0)
+
+[node name="pitch" type="Node3D" parent="camera rig/orbit" unique_id=531304015]
+transform = Transform3D(1, 0, 0, 0, 0.93358034, 0.35836792, 0, -0.35836792, 0.93358034, 0, 0, 0)
+
+[node name="zoom" type="Node3D" parent="camera rig/orbit/pitch" unique_id=205476016]
+transform = Transform3D(1, -1.4901161e-08, 2.9802322e-08, 0, 0.99999994, 7.450581e-09, 0, 7.450581e-09, 1, 0, 0, 5.678)
+
+[node name="Camera3D" type="Camera3D" parent="camera rig/orbit/pitch/zoom" unique_id=540298338]
+transform = Transform3D(1, 1.4901161e-08, 0, 0, 1, -2.9802322e-08, 0, 6.7055225e-08, 1, 0, 0, 0)
+current = true
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=952640715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.427155, 3.2134342, 0)
+script = ExtResource("3_f0ajh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1916770763]
+shape = SubResource("CapsuleShape3D_5edk5")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1408751181]
+current = true

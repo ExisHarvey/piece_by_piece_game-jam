@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://3u1o8p8xhnom"]
+
+[ext_resource type="Script" uid="uid://c0gjjco24wiil" path="res://scene/ventilation.gd" id="1_y61md"]
+
+[node name="Ventilation" type="Node3D" unique_id=127871472]
+transform = Transform3D(-0.23824531, -1.2886598, 0, 1.2886598, -0.23824531, 0, 0, 0, 1.3106883, 0, 0, 0)
+script = ExtResource("1_y61md")
+speed = 0.0
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=863040019]
+transform = Transform3D(0.75515383, 0.6535214, 0.05158361, -0.65555406, 0.7528124, 0.059420824, 0, -0.07868704, 0.99689937, 0.0029159118, -0.005773138, 0.0019657165)
+polygon = PackedVector2Array(-0.010342832, -0.0074658687, 0.002173081, 0.08044773, 0.91731054, 0.44351336, 1, 0)
+depth = 0.2
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="." unique_id=1114043041]
+transform = Transform3D(0.66841155, -0.7414911, -0.058527194, 0.7437973, 0.66633916, 0.052595317, 0, -0.07868704, 0.99689937, 0.0029159118, -0.005773138, 0.0019657165)
+polygon = PackedVector2Array(-0.022714607, -0.013093915, 0.002173081, 0.08044773, 0.92935133, 0.43728325, 1, 0)
+depth = 0.2
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="." unique_id=690327209]
+transform = Transform3D(-0.7206356, -0.6911704, -0.054555323, 0.6933201, -0.71840125, -0.0567047, 0, -0.07868701, 0.99689937, 0.0029159118, -0.005773138, 0.0019657165)
+polygon = PackedVector2Array(-0.020273918, -2.6456895e-05, 0.002173081, 0.08044773, 0.8111545, 0.4991707, 1, 0)
+depth = 0.2
+
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="." unique_id=962511858]
+transform = Transform3D(-0.6037658, 0.7946952, 0.06272671, -0.79716706, -0.6018936, -0.047508538, 5.274263e-09, -0.07868704, 0.99689937, 0.0029159118, -0.005773138, 0.0019657165)
+polygon = PackedVector2Array(-0.01125611, -0.010324057, 0.002173081, 0.08044773, 0.8250245, 0.43798512, 1, 0)
+depth = 0.2
