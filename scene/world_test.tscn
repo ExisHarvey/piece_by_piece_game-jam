@@ -172,11 +172,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, 0.875)
 shape = SubResource("BoxShape3D_5edk5")
 
 [node name="Ventilation" parent="room/Node3D" unique_id=127871472 instance=ExtResource("2_jtske")]
-transform = Transform3D(4.685938e-08, -3.8972242e-08, -1.38983, -0.8919183, -1.0723847, 0, -1.0723847, 0.8919183, -6.07514e-08, 5.8086457, -1.666, -1.959217)
+transform = Transform3D(5.8342508e-08, 1.7598003e-08, -1.38983, 0.40272883, -1.3352413, 0, -1.3352413, -0.40272883, -6.07514e-08, 5.8086457, -1.666, -1.959217)
 speed = 0.4
 
 [node name="Ventilation2" parent="room/Node3D" unique_id=735442730 instance=ExtResource("2_jtske")]
-transform = Transform3D(5.532281e-08, 2.560317e-08, -1.38983, 0.58764946, -1.269749, 0, -1.269749, -0.58764946, -6.07514e-08, 5.8086457, -1.690924, 1.9967827)
+transform = Transform3D(2.8862425e-08, -5.3700187e-08, -1.38983, -1.2325155, -0.662463, 0, -0.662463, 1.2325155, -6.07514e-08, 5.8086457, -1.690924, 1.9967827)
 speed = -0.2
 
 [node name="lights" type="Node3D" parent="room/Node3D" unique_id=1592951706]
@@ -260,7 +260,7 @@ current = true
 [node name="WorkshopTable" parent="." unique_id=907894528 instance=ExtResource("4_8m2bk")]
 transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, 0.9504101, 1.6962011, -3.3333468)
 
-[node name="WorkshopTableLow1" parent="WorkshopTable" index="0" unique_id=63151347]
+[node name="WorkshopTableLow1" parent="WorkshopTable" index="0" unique_id=429012872]
 material_override = ExtResource("5_uvla2")
 
 [editable path="WorkshopTable"]
